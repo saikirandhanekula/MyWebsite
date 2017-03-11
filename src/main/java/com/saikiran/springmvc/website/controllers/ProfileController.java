@@ -23,7 +23,7 @@ public class ProfileController{
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String retrievedDetails(UserInfo ui,HttpServletRequest req){
+	public String retrievedDetails(HttpServletRequest req){
 		String userName = LoginController.m;
 		System.out.println(LoginController.m);
 		System.out.println("from Profile Controller class retrievedData method "+userName);

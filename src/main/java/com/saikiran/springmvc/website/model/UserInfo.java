@@ -9,6 +9,14 @@ public class UserInfo {
 	private String Password;
 	private String Maidenname;
 	private double Phone;
+	private long balance;
+	
+	public long getBalance() {
+		return balance;
+	}
+	public void setBalance(long balance) {
+		this.balance = balance;
+	}
 	public String getFirstname() {
 		return Firstname;
 	}
@@ -64,6 +72,7 @@ public class UserInfo {
 		temp = Double.doubleToLongBits(Phone);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((Username == null) ? 0 : Username.hashCode());
+		result = prime * result + (int) (balance ^ (balance >>> 32));
 		return result;
 	}
 	@Override
@@ -107,12 +116,15 @@ public class UserInfo {
 				return false;
 		} else if (!Username.equals(other.Username))
 			return false;
+		if (balance != other.balance)
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "UserInfo [Firstname=" + Firstname + ", Lastname=" + Lastname + ", Email=" + Email + ", Username="
-				+ Username + ", Password=" + Password + ", Maidenname=" + Maidenname + ", Phone=" + Phone + "]";
+				+ Username + ", Password=" + Password + ", Maidenname=" + Maidenname + ", Phone=" + Phone + ", balance="
+				+ balance + "]";
 	}
 	
 	

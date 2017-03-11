@@ -10,14 +10,14 @@
 <title>Home</title>
 </head>
 <body>
-<form name = "profile" action="http://localhost:8080/springmvc.jdbc.website/profile" method = "post" name="UserInfo">
+<form name = "profile" action="http://localhost:8080/springmvc.jdbc.website/profile" method = "post" >
 <a href = "javascript:document.profile.submit()" >Profile</a>
 </form>
-<form name = "rewards" action="http://localhost:8080/springmvc.jdbc.website/profile" method = "post" name="UserInfo">
-<a href = "javascript:document.profile.submit()" >Rewards</a>
-</form>
-<form name = "balance" action="http://localhost:8080/springmvc.jdbc.website/profile" method = "post" name="UserInfo">
+<form name = "balance" action="http://localhost:8080/springmvc.jdbc.website/balance" method = "post" >
 <a href = "javascript:document.profile.submit()" >Balance</a>
+</form>
+<form name = "rewards" action="http://localhost:8080/springmvc.jdbc.website/rewards" method = "post" >
+<a href = "javascript:document.profile.submit()" >Rewards</a>
 </form>
 </body>
 </html>

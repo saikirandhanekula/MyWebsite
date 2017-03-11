@@ -39,6 +39,7 @@ public class RegisterController {
 		 String Username = req.getParameter("Username");
 		 String Password = req.getParameter("Password");
 		 double Phone = Double.parseDouble(req.getParameter("Phone"));
+		 
 		 user.setFirstname(Firstname);
 		 user.setLastname(Lastname);
 		 user.setMaidenname(Maidenname);
