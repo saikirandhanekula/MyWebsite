@@ -154,6 +154,15 @@ public class RepositoryDAO {
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		finally{
+			try{
+				ps.close();
+				con.close();
+			}
+			catch(SQLException ex){
+				ex.printStackTrace();
+			}
+		}
 		return userInfo;
 	}
 	
