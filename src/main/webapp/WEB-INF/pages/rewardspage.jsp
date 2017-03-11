@@ -7,12 +7,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Balance</title>
+<title>Rewards</title>
 </head>
 <body>
-<h2>Hi, <%out.println(request.getAttribute("Username").toString()); %></h2>
-<h2>Your Current Balance = <%out.println(request.getAttribute("Balance").toString()); %></h2>
-<a href = "http://localhost:8080/springmvc.jdbc.website/makepayment" onclick="makepayment.jsp" target="makepayment.jsp">Make a Payment</a> <br><br>
-<a href = "http://localhost:8080/springmvc.jdbc.website/paybills" onclick="paybills.jsp" target="paybills.jsp">Pay Bill</a>
+<h3>Hello,<%out.println(request.getAttribute("Username").toString()); %>....</h3>
+<h3>Rewards Earned = <%out.println(request.getAttribute("Rewards").toString()); %> </h3>
 </body>
 </html>

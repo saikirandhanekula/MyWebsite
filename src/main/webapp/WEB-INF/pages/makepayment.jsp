@@ -7,12 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Balance</title>
+<title>Make Payments</title>
 </head>
 <body>
-<h2>Hi, <%out.println(request.getAttribute("Username").toString()); %></h2>
-<h2>Your Current Balance = <%out.println(request.getAttribute("Balance").toString()); %></h2>
-<a href = "http://localhost:8080/springmvc.jdbc.website/makepayment" onclick="makepayment.jsp" target="makepayment.jsp">Make a Payment</a> <br><br>
-<a href = "http://localhost:8080/springmvc.jdbc.website/paybills" onclick="paybills.jsp" target="paybills.jsp">Pay Bill</a>
+<form:form action = "http://localhost:8080/springmvc.jdbc.website/makepayment" method="post">
+Email <input type = "text" title="Please enter User Name" name="email" /><br><br>
+Amount <input type = "number" title = "Please Enter Amount" name="amount" /><br>
+<button type="submit" class="btn">Make Payment</button>
+</form:form>
 </body>
 </html>

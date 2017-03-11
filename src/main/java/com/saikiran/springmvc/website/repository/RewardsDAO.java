@@ -8,8 +8,11 @@ import java.sql.SQLException;
 import com.saikiran.springmvc.website.model.UserInfo;
 
 public class RewardsDAO {
-	private static final String INSERT_DETAILS = "insert into rewards(username,rewards,balance) values(?,?,?)";
+	private static final String INSERT_DETAILS = "insert into rewards(username,email,rewards,balance) values(?,?,?,?)";
 	private static final String GET_DETAILS = "select balance,rewards from rewards where username = ?";
+	private static final String MAKE_PAYMENT = "update rewards set balance = balance-? where username = ?";
+	private static final String UPDATE_PAYMENT = "update rewards set balance = balance+? where email=?";
+	private static final String UPDATE_REWARDS = "update rewards set rewards = rewards+? where username = ?";
 	Connection con = null;
 	PreparedStatement ps = null;
 	
@@ -24,15 +27,16 @@ public class RewardsDAO {
 			ex.printStackTrace();
 		}
 	}
-	public boolean insertDetails(String Username, long Rewards, long Balance){
+	public boolean insertDetails(String Username,String Email, long Rewards, long Balance){
 		PreparedStatement ps = null;
 		boolean result = false;
 		try{
 			getConnection();
 			ps = con.prepareStatement(INSERT_DETAILS);
 			ps.setString(1, Username);
-			ps.setLong(2, Rewards);
-			ps.setLong(3, Balance);
+			ps.setString(2, Email);
+			ps.setLong(3, Rewards);
+			ps.setLong(4, Balance);
 			result = ps.execute();
 			System.out.println("From RewardsDAO class getDetails method"+result);
 			if(result==false){
@@ -85,4 +89,92 @@ public class RewardsDAO {
 		return userInfo;
 	}
 	
+	
+	public int makePayment(int amount, String username){
+		PreparedStatement ps = null;
+		int result = 0;
+		try{
+			getConnection();
+			ps = con.prepareStatement(MAKE_PAYMENT);
+			ps.setInt(1, amount);
+			ps.setString(2, username);
+			result = ps.executeUpdate();
+			if(result == 1){
+				System.out.println("***********Updated Successfully to the database**********");
+			}
+			else
+				System.out.println("*************Something went wrong*******************");
+			System.out.println("from RewardsDAO Class makePaymentMethod::"+result);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				ps.close();
+				con.close();
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}
+		}
+		return result;
+	}
+	public int updatePayment(int amount, String email){
+		PreparedStatement ps = null;
+		int result = 0;
+		try{
+			getConnection();
+			ps = con.prepareStatement(UPDATE_PAYMENT);
+			ps.setInt(1, amount);
+			ps.setString(2, email);
+			result = ps.executeUpdate();
+			if(result == 1){
+				System.out.println("***********Updated Successfully to the database**********");
+			}
+			else
+				System.out.println("*************Something went wrong*******************");
+			System.out.println("from RewardsDAO Class makePaymentMethod::"+result);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				ps.close();
+				con.close();
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+	
+	public int updateRewards(int amount, String username){
+		PreparedStatement ps = null;
+		int result = 0;
+		try{
+			getConnection();
+			ps = con.prepareStatement(UPDATE_REWARDS);
+			ps.setInt(1, amount);
+			ps.setString(2, username);
+			result = ps.executeUpdate();
+			if(result == 1){
+				System.out.println("***********Updated Successfully to the database**********");
+			}
+			else
+				System.out.println("*************Something went wrong*******************");
+			System.out.println("from RewardsDAO Class makePaymentMethod::"+result);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				ps.close();
+				con.close();
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
 }

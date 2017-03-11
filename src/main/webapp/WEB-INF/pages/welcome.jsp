@@ -16,8 +16,8 @@
 <form name = "balancepage" action="http://localhost:8080/springmvc.jdbc.website/balancepage" method = "post" >
 <a href = "javascript:document.balancepage.submit()" >Balance</a>
 </form>
-<form name = "rewards" action="http://localhost:8080/springmvc.jdbc.website/rewards" method = "post" >
-<a href = "javascript:document.rewards.submit()" >Rewards</a>
+<form name = "rewardspage" action="http://localhost:8080/springmvc.jdbc.website/rewardspage" method = "post" >
+<a href = "javascript:document.rewardspage.submit()" >Rewards</a>
 </form>
 </body>
 </html>

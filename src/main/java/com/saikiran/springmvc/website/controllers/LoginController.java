@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.saikiran.springmvc.website.model.UserInfo;
 import com.saikiran.springmvc.website.repository.RepositoryDAO;
 
 
@@ -15,12 +14,13 @@ import com.saikiran.springmvc.website.repository.RepositoryDAO;
 public class LoginController {
 	
 	static String m="";
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String passwordCheck(){
 		return "loginpage";
 	}
 	@RequestMapping(value = "/login", method=RequestMethod.POST)
-	public String userDetails(UserInfo ui,HttpServletRequest req){
+	public String userDetails(HttpServletRequest req){
 	    String Username = req.getParameter("Username");
 		String Password = req.getParameter("Password");
 		m=Username;

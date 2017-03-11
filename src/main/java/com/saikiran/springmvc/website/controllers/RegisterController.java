@@ -61,7 +61,7 @@ public class RegisterController {
 		 else{
 			 dao.insertUserInfo(userInfo);
 			 reDao.getConnection();
-			 reDao.insertDetails(Username, user.getRewards(), user.getBalance());
+			 reDao.insertDetails(Username, Email, user.getRewards(), user.getBalance());
 			 return "loginpage";
 		 }
 		 

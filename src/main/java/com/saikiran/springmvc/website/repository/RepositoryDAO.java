@@ -12,10 +12,11 @@ import com.saikiran.springmvc.website.model.UserInfo;
 
 public class RepositoryDAO {
 	Connection con;
-	private static final String CREATE_TABLE = "create table registration (id integer default nextval('id_seq') primary key unique not null,firstname text not null, lastname text not null, maidenname text not null, email text not null, username text UNIQUE not null, password text not null, phone double precision not null)";
+	private static final String CREATE_TABLE = "create table registration (id integer default nextval('id_seq') primary key unique not null,firstname text not null, lastname text not null, maidenname text not null, email text unique not null, username text UNIQUE not null, password text not null, phone double precision not null)";
 	private static final String INSERT_REGISTER = "insert into registration (firstname,lastname,maidenname,email,username,password,phone) values(?,?,?,?,?,?,?)";
 	private static final String GET_DETAILS = "select exists(select username,password from registration where username = ? and password = ?)";
 	private static final String PRINT_DETAILS = "select firstname,lastname,maidenname,email,username,phone from registration where username = ?";
+	
 	public void getConnection(){
 		try{
 			//Driver Initialization
@@ -165,5 +166,5 @@ public class RepositoryDAO {
 		}
 		return userInfo;
 	}
-	
+
 }
