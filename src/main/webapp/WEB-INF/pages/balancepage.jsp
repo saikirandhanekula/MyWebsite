@@ -10,9 +10,13 @@
 <title>Balance</title>
 </head>
 <body>
-<form:form action = "" method = "post">
-MakePayment<input type = "button" name = "MakePayment">
-PayBills<input type = "button" name = "PayBills">
+<h2>Hi, <%out.println(request.getAttribute("Username").toString()); %></h2>
+<h2>Your Current Balance = <%out.println(request.getAttribute("Balance").toString()); %></h2>
+<form:form name = "makepayment" action="http://localhost:8080/springmvc.jdbc.website/makepayment" method = "post">
+<a href = "javascript:document.makepayment.submit()" >Make a Payment</a>
+</form:form>
+<form:form name = "paybills" action="http://localhost:8080/springmvc.jdbc.website/paybills" method = "post">
+<a href = "javascript:document.paybills.submit()" >Pay Bills</a>
 </form:form>
 </body>
 </html>
