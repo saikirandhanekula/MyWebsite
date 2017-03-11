@@ -10,7 +10,13 @@ public class UserInfo {
 	private String Maidenname;
 	private double Phone;
 	private long balance;
-	private long rewards;
+	
+	public long getBalance() {
+		return balance;
+	}
+	public void setBalance(long balance) {
+		this.balance = balance;
+	}
 	public String getFirstname() {
 		return Firstname;
 	}
@@ -53,18 +59,6 @@ public class UserInfo {
 	public void setPhone(double phone) {
 		Phone = phone;
 	}
-	public long getBalance() {
-		return balance;
-	}
-	public void setBalance(long balance) {
-		this.balance = balance;
-	}
-	public long getRewards() {
-		return rewards;
-	}
-	public void setRewards(long rewards) {
-		this.rewards = rewards;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -79,7 +73,6 @@ public class UserInfo {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((Username == null) ? 0 : Username.hashCode());
 		result = prime * result + (int) (balance ^ (balance >>> 32));
-		result = prime * result + (int) (rewards ^ (rewards >>> 32));
 		return result;
 	}
 	@Override
@@ -125,15 +118,14 @@ public class UserInfo {
 			return false;
 		if (balance != other.balance)
 			return false;
-		if (rewards != other.rewards)
-			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "UserInfo [Firstname=" + Firstname + ", Lastname=" + Lastname + ", Email=" + Email + ", Username="
 				+ Username + ", Password=" + Password + ", Maidenname=" + Maidenname + ", Phone=" + Phone + ", balance="
-				+ balance + ", rewards=" + rewards + "]";
+				+ balance + "]";
 	}
+	
 	
 }

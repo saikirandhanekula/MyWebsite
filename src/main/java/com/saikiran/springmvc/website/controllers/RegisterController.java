@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.saikiran.springmvc.website.model.UserInfo;
 import com.saikiran.springmvc.website.repository.RepositoryDAO;
-import com.saikiran.springmvc.website.repository.RewardsDAO;
 
 @Controller
 @RequestMapping(value="/register")
@@ -48,22 +47,11 @@ public class RegisterController {
 		 user.setUsername(Username);
 		 user.setPassword(Password);
 		 user.setPhone(Phone);
-		 user.setBalance(1500);
-		 user.setRewards(50);
 		 userInfo.add(user);
 		 RepositoryDAO dao = new RepositoryDAO();
-		 RewardsDAO reDao = new RewardsDAO();
 		 dao.getConnection();
+		 dao.insertUserInfo(userInfo);
 		 
-		 if(dao.getDetails(Username, Password)){
-			 return "error";
-			}
-		 else{
-			 dao.insertUserInfo(userInfo);
-			 reDao.getConnection();
-			 reDao.insertDetails(Username, user.getRewards(), user.getBalance());
-			 return "loginpage";
-		 }
-		 
+		 return "loginpage";
 	    }
 	 }

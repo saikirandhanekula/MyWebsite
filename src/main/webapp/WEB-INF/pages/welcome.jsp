@@ -13,11 +13,11 @@
 <form name = "profile" action="http://localhost:8080/springmvc.jdbc.website/profile" method = "post" >
 <a href = "javascript:document.profile.submit()" >Profile</a>
 </form>
-<form name = "balancepage" action="http://localhost:8080/springmvc.jdbc.website/balancepage" method = "post" >
-<a href = "javascript:document.balancepage.submit()" >Balance</a>
+<form name = "balance" action="http://localhost:8080/springmvc.jdbc.website/balance" method = "post" >
+<a href = "javascript:document.profile.submit()" >Balance</a>
 </form>
 <form name = "rewards" action="http://localhost:8080/springmvc.jdbc.website/rewards" method = "post" >
-<a href = "javascript:document.rewards.submit()" >Rewards</a>
+<a href = "javascript:document.profile.submit()" >Rewards</a>
 </form>
 </body>
 </html>

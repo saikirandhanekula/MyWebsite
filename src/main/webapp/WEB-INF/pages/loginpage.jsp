@@ -12,7 +12,7 @@
 <body>
 <div>
 Login
-<form:form action="http://localhost:8080/springmvc.jdbc.website/login" method="post"><br>
+<form:form action="http://localhost:8080/springmvc.jdbc.website/login" method="post" modelAttribute ="user"><br>
 UserName <input type = "text" title="Please enter User Name" name="Username" /><br><br>
 Password <input type = "password" title="Please enter Password" name="Password" /><br><br>
 <button type="submit" class="btn">Login</button> <br>
