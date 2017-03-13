@@ -5,14 +5,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
 import com.saikiran.springmvc.website.model.UserInfo;
 
 public class RewardsDAO {
+	private static final String CREATE_TABLE = "create table if not exists rewards(id integer default nextval('id_seq2') primary key unique not null, username text unique not null, foreign key(username) references registration(username),email text unique not null, foreign key(email) references registration(email), rewards integer not null, balance integer not null)";
 	private static final String INSERT_DETAILS = "insert into rewards(username,email,rewards,balance) values(?,?,?,?)";
 	private static final String GET_DETAILS = "select balance,rewards from rewards where username = ?";
 	private static final String MAKE_PAYMENT = "update rewards set balance = balance-? where username = ?";
 	private static final String UPDATE_PAYMENT = "update rewards set balance = balance+? where email=?";
 	private static final String UPDATE_REWARDS = "update rewards set rewards = rewards+? where username = ?";
+	private static final String PAY_BILL = "update rewards set balance = balance+? where username = ?";
 	Connection con = null;
 	PreparedStatement ps = null;
 	
@@ -27,6 +31,30 @@ public class RewardsDAO {
 			ex.printStackTrace();
 		}
 	}
+	
+	public  void createRegistration() {
+		Statement stmt = null;
+		try{
+			getConnection();
+			//create connection
+			stmt = con.createStatement();
+			stmt.execute(CREATE_TABLE);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		finally{
+			try{
+				stmt.close();
+				con.close();
+			}
+			catch(SQLException sq){
+				sq.printStackTrace();
+			}
+		}
+	}
+	
 	public boolean insertDetails(String Username,String Email, long Rewards, long Balance){
 		PreparedStatement ps = null;
 		boolean result = false;
@@ -175,6 +203,35 @@ public class RewardsDAO {
 			}
 		}
 		
+		return result;
+	}
+	
+	public int payBillMethod(int amount, String username){
+		PreparedStatement ps = null;
+		int result = 0;
+		try{
+			getConnection();
+			ps = con.prepareStatement(PAY_BILL);
+			ps.setInt(1, amount);
+			ps.setString(2, username);
+			result = ps.executeUpdate();
+			if(result == 1){
+				System.out.println("***********Updated Successfully to the database**********");
+			}
+			else
+				System.out.println("*************Something went wrong*******************");
+			System.out.println("from RewardsDAO Class payBillMethod::"+result);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				ps.close();
+				con.close();
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}
+		}
 		return result;
 	}
 }

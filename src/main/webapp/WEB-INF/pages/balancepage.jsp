@@ -10,9 +10,11 @@
 <title>Balance</title>
 </head>
 <body>
-<h2>Hi, <%out.println(request.getAttribute("Username").toString()); %></h2>
-<h2>Your Current Balance = <%out.println(request.getAttribute("Balance").toString()); %></h2>
+<form action="">
+<h2>Hello, <%out.println(request.getAttribute("Username").toString()); %></h2>
+<h2>Your Current Balance = <% out.println(request.getAttribute("Balance").toString()); %></h2>
+</form>
 <a href = "http://localhost:8080/springmvc.jdbc.website/makepayment" onclick="makepayment.jsp" target="makepayment.jsp">Make a Payment</a> <br><br>
-<a href = "http://localhost:8080/springmvc.jdbc.website/paybills" onclick="paybills.jsp" target="paybills.jsp">Pay Bill</a>
+<a href = "http://localhost:8080/springmvc.jdbc.website/paybills" onclick="paybills.jsp" target="paybills.jsp">Pay Bill</a><br><br>
 </body>
 </html>

@@ -12,10 +12,13 @@ import com.saikiran.springmvc.website.model.UserInfo;
 
 public class RepositoryDAO {
 	Connection con;
-	private static final String CREATE_TABLE = "create table registration (id integer default nextval('id_seq') primary key unique not null,firstname text not null, lastname text not null, maidenname text not null, email text unique not null, username text UNIQUE not null, password text not null, phone double precision not null)";
+	private static final String CREATE_TABLE = "create table if not exists registration (id integer default nextval('id_seq1') primary key unique not null,firstname text not null, lastname text not null, maidenname text not null, email text unique not null, username text UNIQUE not null, password text not null, phone double precision not null)";
 	private static final String INSERT_REGISTER = "insert into registration (firstname,lastname,maidenname,email,username,password,phone) values(?,?,?,?,?,?,?)";
 	private static final String GET_DETAILS = "select exists(select username,password from registration where username = ? and password = ?)";
 	private static final String PRINT_DETAILS = "select firstname,lastname,maidenname,email,username,phone from registration where username = ?";
+	private static final String USERNAME_MAIL_CHECK = "select exists(select username,email from registration where username = ? and email = ?)";
+	private static final String REPLACE_PASSWORD = "update registration set password = ? where username = ?";
+	private static final String USER_CHECK = "select exists(select username from registration where username = ?)";
 	
 	public void getConnection(){
 		try{
@@ -166,5 +169,95 @@ public class RepositoryDAO {
 		}
 		return userInfo;
 	}
-
+	
+	public boolean usernameEmailCheckMethod(String Username,String Email){
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		boolean result = false;
+		try{
+			getConnection();
+			ps = con.prepareStatement(USERNAME_MAIL_CHECK);
+			ps.setString(1, Username);
+			ps.setString(2, Email);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				result = rs.getBoolean(1);
+			}
+			System.out.println("From RepositoryDAO class UsernameEmailCheck method"+result);
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				con.close();
+				ps.close();
+			}
+			catch(SQLException s){
+				s.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
+	public boolean userNameCheckMethod(String Username){
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		boolean result = false;
+		try{
+			getConnection();
+			ps = con.prepareStatement(USER_CHECK);
+			ps.setString(1, Username);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				result = rs.getBoolean(1);
+			}
+			System.out.println("From RepositoryDAO class UsernameCheck method"+result);
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				con.close();
+				ps.close();
+			}
+			catch(SQLException s){
+				s.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
+	public int resetPassword(String NewPassword, String Username){
+		PreparedStatement ps = null;
+		int result = 0;
+		try{
+			getConnection();
+			ps = con.prepareStatement(REPLACE_PASSWORD);
+			ps.setString(1, NewPassword);
+			ps.setString(2, Username);
+			result = ps.executeUpdate();
+			if(result == 1){
+				
+				System.out.println("From RepositoryDAO class resetPassword method"+result);
+			}
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				con.close();
+				ps.close();
+			}
+			catch(SQLException s){
+				s.printStackTrace();
+			}
+		}
+		return result;
+	}
 }

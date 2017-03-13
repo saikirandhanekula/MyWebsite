@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/error")
+@RequestMapping("/registrationError")
 public class ErrorController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String errorGetMethod(){
-		return "error";
+		return "registrtionError";
 	}
 }

@@ -7,13 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Make Payments</title>
+<title>Insert title here</title>
 </head>
 <body>
-<form:form action = "http://localhost:8080/springmvc.jdbc.website/makepayment" method="post">
-Email <input type = "text" placeholder="Please enter User Name" name="email" /><br><br>
-Amount <input type = "number" placeholder = "Please Enter Amount" name="amount" /><br>
-<button type="submit" class="btn">Make Payment</button>
+<form:form action="http://localhost:8080/springmvc.jdbc.website/UsernameValidationPage" method="post"><br>
+UserName <input type = "text" placeholder="Please enter User Name" name="Username" /><br><br>
+<button type="submit" class="btn">Submit</button> <br><br>
 </form:form>
 </body>
 </html>

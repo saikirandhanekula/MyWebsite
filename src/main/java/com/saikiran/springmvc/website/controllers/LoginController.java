@@ -27,6 +27,7 @@ public class LoginController {
 	    RepositoryDAO dao = new RepositoryDAO();
 		dao.getConnection();
 	if(dao.getDetails(Username, Password)){
+		req.setAttribute("Username", Username);
 			return "welcome";
 			
 		}

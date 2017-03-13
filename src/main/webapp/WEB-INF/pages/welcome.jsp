@@ -9,15 +9,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home</title>
 </head>
+
 <body>
 <form name = "profile" action="http://localhost:8080/springmvc.jdbc.website/profile" method = "post" >
-<a href = "javascript:document.profile.submit()" >Profile</a>
+<a href = "javascript:document.profile.submit()" target = "profile_page" >Profile</a><br><br>
 </form>
 <form name = "balancepage" action="http://localhost:8080/springmvc.jdbc.website/balancepage" method = "post" >
-<a href = "javascript:document.balancepage.submit()" >Balance</a>
+<a href = "javascript:document.balancepage.submit()" target = "balance_page" >Balance</a><br><br>
 </form>
 <form name = "rewardspage" action="http://localhost:8080/springmvc.jdbc.website/rewardspage" method = "post" >
-<a href = "javascript:document.rewardspage.submit()" >Rewards</a>
+<a href = "javascript:document.rewardspage.submit()" target = "rewards_page" >Rewards</a><br><br>
 </form>
 </body>
 </html>

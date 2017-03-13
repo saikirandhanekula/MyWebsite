@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Error</title>
+<title>Bill Failure</title>
 </head>
 <body>
-<h1>User Name Already Exists.... Please Try Again!!!</h1>
+<h2>Something Went Wrong....!!!!</h2>
 </body>
 </html>
