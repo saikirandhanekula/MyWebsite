@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Forgot Password</title>
 </head>
 <body>
 <form:form action="http://localhost:8080/springmvc.jdbc.website/UsernameValidationPage" method="post"><br>

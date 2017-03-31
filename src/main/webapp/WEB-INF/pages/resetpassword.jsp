@@ -10,7 +10,7 @@
 <title>Reset Password</title>
 </head>
 <body>
-<form:form action="http://localhost:8080/springmvc.jdbc.website/resetpassword" method="post"><br>
+<form:form action="http://localhost:8080/springmvc.jdbc.website/forgotpassword/resetpassword" method="post"><br>
 <table> 
 <tr>
 <td>New Password</td>
@@ -18,7 +18,7 @@
 </tr>
 
 <tr>
-<td>Confirm New Password</td>
+<td>Confirm Password</td>
 <td align = "center"><input type = "password" placeholder = "Confirm Password" name = "ConfirmPassword"/></td>
 </tr>
 <tr>

@@ -12,13 +12,13 @@
 <body>
 <div>
 <form:form action = "http://localhost:8080/springmvc.jdbc.website/register" method = "post" modelAttribute = "user">
-First Name<input type = "text" placeholder = "Please Enter First Name" name = "Firstname"/><br><br>
-Last Name<input type = "text" placeholder = "Please Enter Last Name" name = "Lastname"/><br><br>
-Mother's Maiden Name<input type = "text" placeholder = "Please Enter Maiden Name" name = "Maidenname"/><br><br>
-Email<input type = "text" placeholder = "Please Enter Email" name = "Email"><br><br>
-UserName <input type = "text" placeholder="Please enter User Name" name="Username" /><br><br>
-Password <input type = "password" placeholder="" name="Password" /><br><br>
-Phone<input type ="number" placeholder = "" name = "Phone"/><br><br>
+First Name<input type = "text" placeholder = "First Name" name = "Firstname"/><br><br>
+Last Name<input type = "text" placeholder = "Last Name" name = "Lastname"/><br><br>
+Mother's Maiden Name<input type = "text" placeholder = "Maiden Name" name = "Maidenname"/><br><br>
+Email<input type = "text" placeholder = "Email" name = "Email"><br><br>
+UserName <input type = "text" placeholder="User Name" name="Username" /><br><br>
+Password <input type = "password" placeholder="Password" name="Password" /><br><br>
+Phone<input type ="number" placeholder = "Phone Number" name = "Phone"/><br><br>
 <button type="submit" class="btn">Register</button> 
 </form:form>
 </div>

@@ -1,4 +1,4 @@
-package com.saikiran.springmvc.website.model;
+package com.saikiran.springmvc.jdbc.website.model;
 
 public class UserInfo {
 	

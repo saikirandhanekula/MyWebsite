@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Error</title>
+<title>Add Friend Error</title>
 </head>
 <body>
-<h1>User Name Already Exists....</h1>
-
-<form name = "register" action="http://localhost:8080/springmvc.jdbc.website/register" method = "post" >
-Click <a href = "javascript:document.register.submit()" target = "register_page" >here</a>for try again!!!<br><br>
-</form>
+<h2>Something Went Wrong.....Please Try Again!!!!</h2>
 </body>
 </html>

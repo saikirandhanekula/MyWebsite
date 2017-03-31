@@ -7,6 +7,11 @@
 <title>Email Error</title>
 </head>
 <body>
-<h2>Email Doesn't Exist......Please Try Again........!!!!!!!</h2>
+<h2>Email Doesn't Exist......</h2>
+
+<form name = "addfriendemail" action="http://localhost:8080/springmvc.jdbc.website/addfriendemail" method = "post" >
+Click <a href = "javascript:document.addfriendemail.submit()" target = "addfriendemail_page" >here</a>for try again!!!<br><br>
+</form>
+
 </body>
 </html>

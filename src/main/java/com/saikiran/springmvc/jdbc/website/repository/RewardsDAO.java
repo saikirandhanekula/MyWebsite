@@ -1,4 +1,4 @@
-package com.saikiran.springmvc.website.repository;
+package com.saikiran.springmvc.jdbc.website.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.saikiran.springmvc.website.model.UserInfo;
+import com.saikiran.springmvc.jdbc.website.model.UserInfo;
 
 public class RewardsDAO {
 	private static final String CREATE_TABLE = "create table if not exists rewards(id integer default nextval('id_seq2') primary key unique not null, username text unique not null, foreign key(username) references registration(username),email text unique not null, foreign key(email) references registration(email), rewards integer not null, balance integer not null)";

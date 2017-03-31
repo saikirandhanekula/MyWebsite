@@ -1,4 +1,4 @@
-package com.saikiran.springmvc.website.repository;
+package com.saikiran.springmvc.jdbc.website.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +11,7 @@ public class UserProfileDAO {
 	private static final String CREATE_USER = "create table if not exists userprofile(id integer default nextval('id_seq3') not null, username text unique not null, foreign key(username) references registration(username), friendemail text unique)";
 	private static final String INSERT_FRIEND_EMAIL = "insert into userprofile(username) values(?)";
 	private static final String CHECK_EMAIL = "select exists(select friendemail from userprofile where username = ? and friendemail=?)";
+	private static final String ADD_FRIEND_EMAIL = "update userprofile set friendemail=? where username = ?";
 	Connection con = null;
 	public void getConnection(){
 		try{
@@ -93,6 +94,33 @@ public class UserProfileDAO {
 				System.out.println("********Email Exists**********");
 			}else{
 				System.out.println("********Doesn't Exist***********");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				ps.close();
+				con.close();
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
+	public boolean addFriendEmail(String Username, String Email){
+		PreparedStatement ps = null;
+		boolean result = false;
+		try{
+			ps = con.prepareStatement(ADD_FRIEND_EMAIL);
+			ps.setString(1, Email);
+			ps.setString(2, Username);
+			result =  ps.execute();
+			if(result==false){
+				System.out.println("********Email Added Successfully**********");
+			}else{
+				System.out.println("********Something Went Wrong.....Email Doesn't Added***********");
 			}
 		}catch(Exception e){
 			e.printStackTrace();
